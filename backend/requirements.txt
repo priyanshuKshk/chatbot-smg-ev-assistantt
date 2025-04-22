@@ -1,0 +1,11 @@
+requirements = [
+    "google-generativeai",
+    "flask",              # if you're using a web app
+    "requests",           # if you're making API calls
+]
+
+with open("requirements.txt", "w") as file:
+    for package in requirements:
+        file.write(f"{package}\n")
+
+print("✅ 'requirements.txt' file created with Gemini dependencies.")
