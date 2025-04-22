@@ -1,0 +1,31 @@
+
+  #service_coupons 
+  Coupon Number,Fields
+  1th Service Coupon,"Customer Name; Service Date; VIN number; Purchase Date; Total Run in Kms; Battery Health; Service Summary; Dealer Name; Service By; Next Service On"
+  2th Service Coupon,"Customer Name; Service Date; VIN number; Purchase Date; Total Run in Kms; Battery Health; Service Summary; Dealer Name; Service By; Next Service On"
+  3th Service Coupon,"Customer Name; Service Date; VIN number; Purchase Date; Total Run in Kms; Battery Health; Service Summary; Dealer Name; Service By; Next Service On"
+  4th Service Coupon,"Customer Name; Service Date; VIN number; Purchase Date; Total Run in Kms; Battery Health; Service Summary; Dealer Name; Service By; Next Service On"
+  5th Service Coupon,"Customer Name; Service Date; VIN number; Purchase Date; Total Run in Kms; Battery Health; Service Summary; Dealer Name; Service By; Next Service On"
+  6th Service Coupon,"Customer Name; Service Date; VIN number; Purchase Date; Total Run in Kms; Battery Health; Service Summary; Dealer Name; Service By; Next Service On"
+#   services places and enginerrs
+
+State,City,Engineer Count
+JHARKHAND,RANCHI,20
+KARNATAKA,BANGALORE,20
+KERALA,ERNAKULAM,20
+MADHYA PRADESH,BHOPAL,20
+MAHARASHTRA,PUNE,20
+MANIPUR,N/A,N/A
+MEGHALAYA,N/A,N/A
+MIZORAM,N/A,N/A
+NAGALAND,N/A,N/A
+ODISHA,CUTTACK,20
+PUNJAB,CHANDIGARH,20
+RAJASTHAN,BHILWARA,20
+SIKKIM,N/A,N/A
+TAMIL NADU,CHENNAI,20
+TELENGANA,HYDERABAD,20
+TRIPURA,N/A,N/A
+UTTAR PRADESH,ALLAHABAD,20
+UTTARAKHAND,N/A,N/A
+WEST BENGAL,KOLKATA,20
