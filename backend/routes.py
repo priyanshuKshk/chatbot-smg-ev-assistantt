@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from model import ask_bot
+from backend.model import ask_bot
 
 chatbot_route = Blueprint('chatbot', __name__)
 
