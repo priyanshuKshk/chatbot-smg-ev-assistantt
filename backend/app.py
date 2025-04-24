@@ -7,7 +7,8 @@ app = Flask(__name__, static_folder='../frontend/build', static_url_path='/')
 CORS(app)
 
 # Register your chatbot API blueprint
-app.register_blueprint(chatbot_route)
+app.register_blueprint(chatbot_route, url_prefix='/api')
+
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
