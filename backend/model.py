@@ -39,6 +39,7 @@ corpus_embeddings = model.encode(text_data, show_progress_bar=True)
 def ask_bot(user_query):
     # Normalize query for matching
     normalized_query = user_query.strip().lower()
+    print(f"Normalized query: {normalized_query}")
 
     # Custom hardcoded replies
     identity_questions = [
@@ -53,7 +54,7 @@ def ask_bot(user_query):
         return "SMG Electric Vehicles,A leading provider of electric vehicle fluids, greases, and related support services across India."
 
 
-
+def ask_bot(user_query):
     try:
         # Generate embedding for user query
         query_embedding = model.encode([user_query])
@@ -76,8 +77,10 @@ Answer:
 
         print("Sending prompt to Gemini...")
         response = gemini_model.generate_content(prompt)
+        print("Gemini response received")
         return response.text.strip()
-
     except Exception as e:
+        import traceback
+        traceback.print_exc()
         print(f"Gemini API Error: {e}")
         return "Sorry, something went wrong while trying to answer your question."

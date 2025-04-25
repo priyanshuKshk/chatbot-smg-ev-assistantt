@@ -5,6 +5,7 @@ import "./ChatBox.css";
 function ChatBox() {
   const [messages, setMessages] = useState([]);
   const [query, setQuery] = useState("");
+  const [loading, setLoading] = useState(false);
 
   // Add first welcome message
   useEffect(() => {
@@ -12,19 +13,23 @@ function ChatBox() {
   }, []);
 
   const askBot = async () => {
+    setLoading(true);
     if (!query.trim()) return;
 
     const userMessage = { text: query, sender: "user" };
     setMessages((prev) => [...prev, userMessage]);
 
     try {
+      setQuery("");
       const res = await fetch(`${config.API_URL}/ask`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+           "Content-Type": "application/json",   
+          },
         body: JSON.stringify({ query }),
       });
       const data = await res.json();
-
+      console.log("data" ,data);
       const botMessage = { text: data.response, sender: "bot" };
       setMessages((prev) => [...prev, botMessage]);
     } catch (error) {
@@ -32,9 +37,9 @@ function ChatBox() {
         ...prev,
         { text: "Sorry, something went wrong.", sender: "bot" },
       ]);
+    }finally{
+      setLoading(false);
     }
-
-    setQuery("");
   };
 
   const handleKeyPress = (event) => {
@@ -51,12 +56,18 @@ function ChatBox() {
       <div className="chat-header">🤖 SMG-EV Assistant</div>
 
       <div className="chat-box">
-        {messages.map((msg, index) => (
-          <div key={index} className={`message ${msg.sender}`}>
-            {msg.text}
-          </div>
-        ))}
-      </div>
+  {messages.map((msg, index) => (
+    <div key={index} className={`message ${msg.sender}`}>
+      {msg.text}
+    </div>
+  ))}
+  {loading && (
+    <div className="message bot">
+      Typing...
+    </div>
+  )}
+</div>
+
 
       <div className="chat-input">
         <textarea
