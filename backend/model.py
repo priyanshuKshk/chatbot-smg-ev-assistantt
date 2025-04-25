@@ -11,7 +11,7 @@ genai.configure(api_key=API_KEY)
 gemini_model = genai.GenerativeModel("gemini-1.5-pro-latest")
 
 # Load multiple CSVs
-DATASET_FOLDER = os.path.join(os.path.dirname(__file__),".." ,"dataset")
+DATASET_FOLDER = os.path.join(os.path.dirname(__file__) ,"dataset")
 csv_files = ["company_info.csv", "Data[1].csv","dataset.csv","ev_service_data.csv" ,"products.csv"
 ]  # Add new CSV filenames here
 
@@ -38,6 +38,7 @@ corpus_embeddings = model.encode(text_data, show_progress_bar=True)
 
 def ask_bot(user_query):
     # Normalize query for matching
+    
     normalized_query = user_query.strip().lower()
     print(f"Normalized query: {normalized_query}")
 
