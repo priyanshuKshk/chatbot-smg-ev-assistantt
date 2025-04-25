@@ -5,7 +5,7 @@ import os
 
 app = Flask(__name__, static_folder="../frontend/build", static_url_path="/")
 
-CORS(app, resources={r"/*": {"origins": ["http://localhost:3000", ]}})
+CORS(app, resources={r"/*": {"origins": ["http://localhost:3000", "https://chatbot-smg-ev-assistant-1.onrender.com/"]}})
 # Register Blueprint for chatbot API
 app.register_blueprint(chatbot_route)
 
