@@ -4,14 +4,18 @@ from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 import google.generativeai as genai
 from dotenv import load_dotenv
+env_path = os.path.join(os.path.dirname(__file__), '.env')
+load_dotenv(dotenv_path=env_path)
 
-load_dotenv()
-API_KEY = os.getenv("GEMINI_API_KEY")
+API_KEY = os.getenv("GOOGLE_API_KEY")
+
 if API_KEY:
-    os.environ["GOOGLE_API_KEY"] = API_KEY  # 👈 force setting GOOGLE_API_KEY
+    print("✅ GOOGLE_API_KEY loaded successfully.")
+    os.environ["GOOGLE_API_KEY"] = API_KEY
+    import google.generativeai as genai
     genai.configure(api_key=API_KEY)
 else:
-    print("❌ GEMINI_API_KEY not found!")
+    raise Exception("❌ GOOGLE_API_KEY not found! Please check your .env file.")
 
 gemini_model = genai.GenerativeModel("gemini-1.5-pro-latest")
 
