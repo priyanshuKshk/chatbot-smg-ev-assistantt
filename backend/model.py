@@ -7,7 +7,12 @@ from dotenv import load_dotenv
 
 load_dotenv()
 API_KEY = os.getenv("GEMINI_API_KEY")
-genai.configure(api_key=API_KEY)
+if API_KEY:
+    os.environ["GOOGLE_API_KEY"] = API_KEY  # 👈 force setting GOOGLE_API_KEY
+    genai.configure(api_key=API_KEY)
+else:
+    print("❌ GEMINI_API_KEY not found!")
+
 gemini_model = genai.GenerativeModel("gemini-1.5-pro-latest")
 
 # Load multiple CSVs
