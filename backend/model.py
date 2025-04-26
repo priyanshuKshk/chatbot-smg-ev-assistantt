@@ -10,10 +10,11 @@ load_dotenv(dotenv_path=env_path)
 API_KEY = os.getenv("GOOGLE_API_KEY")
 
 if API_KEY:
-    print("✅ GOOGLE_API_KEY loaded successfully.")
+    
     os.environ["GOOGLE_API_KEY"] = API_KEY
     import google.generativeai as genai
     genai.configure(api_key=API_KEY)
+    print("✅ GOOGLE_API_KEY loaded successfully.")
 else:
     raise Exception("❌ GOOGLE_API_KEY not found! Please check your .env file.")
 
